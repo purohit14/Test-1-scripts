@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: be-nginx
+  name: be-nginx
+  namespace: backend-ns
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: be-nginx
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: be-nginx
+    spec:
+      containers:
+      - image: nginx
+        name: nginx
+        resources: 
+          limits: 
+            cpu: 50m
+          requests: 
+            cpu: 20m
+status: {}
